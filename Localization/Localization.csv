@@ -17,6 +17,8 @@ CameraMode:Functions/CloseDesc	Text		Exit camera mode
 CameraMode:InCameraMode	Text		Camera mode
 CameraMode:SavedCapture	Text		Saved as {0}
 CameraMode:CaptureResolution	Text		Capture resolution
-CameraMode:CaptureResolution	Text		Capture quality
+CameraMode:CaptureQuality	Text		Capture quality
+CameraMode:CaptureQuality/Lossless	Text		Lossless (.png)
+CameraMode:CaptureQuality/Compressed	Text		Compressed (.jpg)
 CameraMode:CaptureEntities	Text		Capture entities
 CameraMode:CaptureStopped	Text		Capture stopped
