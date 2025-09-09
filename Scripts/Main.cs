@@ -17,14 +17,14 @@ namespace CameraMode {
 			Debug.Log($"[{DisplayName}] Mod version: {Version}");
 
 			AssetBundle = modInfo!.AssetBundles[0];
-			
-			Config.Instance.Init();
 		}
 
 		public void Init() {
 			var gameObject = new GameObject("Camera Mode Managers");
 			Object.DontDestroyOnLoad(gameObject);
 			gameObject.AddComponent<CaptureManager>();
+			
+			Config.Instance.Init();
 		}
 
 		public void Update() { }
