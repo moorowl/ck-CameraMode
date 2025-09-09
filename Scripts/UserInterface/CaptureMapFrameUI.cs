@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using CameraMode.Capture;
-using Pug.UnityExtensions;
 using PugMod;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace CameraMode.UserInterface {
