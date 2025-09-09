@@ -1,4 +1,5 @@
-﻿using CameraMode.Capture;
+﻿using System;
+using CameraMode.Capture;
 using PugMod;
 using Unity.Mathematics;
 
@@ -21,13 +22,13 @@ namespace CameraMode {
 		public CaptureQuality CaptureQuality {
 			get => _captureQuality;
 			set {
-				_captureQuality = value;
+				_captureQuality = Enum.IsDefined(typeof(CaptureQuality), value) ? value : CaptureQuality.Lossless;
 				_captureQualityEntry.Value = _captureQuality;
 			}
 		}
 		
 		public void Init() {
-			_captureResolutionScaleEntry = API.Config.Register(Main.InternalName, "Capture", "", "ResolutionScale", 1);
+			_captureResolutionScaleEntry = API.Config.Register(Main.InternalName, "Capture", "", "ResolutionScale", 2);
 			CaptureResolutionScale = _captureResolutionScaleEntry.Value;
 			
 			_captureQualityEntry = API.Config.Register(Main.InternalName, "Capture", "", "Quality", CaptureQuality.Lossless);
