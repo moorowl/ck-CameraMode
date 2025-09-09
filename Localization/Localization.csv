@@ -1,24 +1,24 @@
-Key	Type	Desc	English
-CameraMode:Functions/OpenFolder	Text		Open folder
-CameraMode:Functions/OpenFolderDesc	Text		Open the folder that captures are saved in
-CameraMode:Functions/CaptureScreenshot	Text		Capture screenshot
-CameraMode:Functions/CaptureScreenshotDesc	Text		Capture the area currently visible on your screen.
-CameraMode:Functions/CaptureFrame	Text		Capture frame
-CameraMode:Functions/CaptureFrameDesc	Text		Capture the selected frame. Use the Pin frame option to set it.
-CameraMode:Functions/CaptureFrameSpecialDesc	Text		A frame hasn't been set.
-CameraMode:Functions/PinFrame	Text		Pin frame
-CameraMode:Functions/PinFrameDesc	Text		Set the frame by clicking in the world or on the fullscreen map with the left and right mouse buttons.
-CameraMode:Functions/ResetFrame	Text		Clear frame
-CameraMode:Functions/ResetFrameDesc	Text		Clears the selected frame.
-CameraMode:Functions/ToggleMap	Text		Toggle map
-CameraMode:Functions/ToggleMapDesc	Text		Toggles the fullscreen map.
-CameraMode:Functions/Close	Text		Close
-CameraMode:Functions/CloseDesc	Text		Exit camera mode
-CameraMode:InCameraMode	Text		Camera mode
-CameraMode:SavedCapture	Text		Saved as {0}
-CameraMode:CaptureResolution	Text		Capture resolution
-CameraMode:CaptureQuality	Text		Capture quality
-CameraMode:CaptureQuality/Lossless	Text		Lossless (.png)
-CameraMode:CaptureQuality/Compressed	Text		Compressed (.jpg)
-CameraMode:CaptureEntities	Text		Capture entities
-CameraMode:CaptureStopped	Text		Capture stopped
+Key	Type	Desc	English	German	French (France)	Portuguese (Brazil)	Italian (Italy)	Japanese	Korean	Russian	Spanish	Ukrainian	Chinese (Simplified)	Chinese (Traditional)	Thai
+CameraMode:Functions/OpenFolder	Text		Open folder												
+CameraMode:Functions/OpenFolderDesc	Text		Open the folder that captures are saved in												
+CameraMode:Functions/CaptureScreenshot	Text		Capture screenshot												
+CameraMode:Functions/CaptureScreenshotDesc	Text		Capture the area currently visible on your screen.												
+CameraMode:Functions/CaptureFrame	Text		Capture frame												
+CameraMode:Functions/CaptureFrameDesc	Text		Capture the selected frame. Use the Pin frame option to set it.												
+CameraMode:Functions/CaptureFrameSpecialDesc	Text		A frame hasn't been set.												
+CameraMode:Functions/PinFrame	Text		Pin frame												
+CameraMode:Functions/PinFrameDesc	Text		Set the frame by clicking in the world or on the fullscreen map with the left and right mouse buttons.												
+CameraMode:Functions/ResetFrame	Text		Clear frame												
+CameraMode:Functions/ResetFrameDesc	Text		Clears the selected frame.												
+CameraMode:Functions/ToggleMap	Text		Toggle map												
+CameraMode:Functions/ToggleMapDesc	Text		Toggles the fullscreen map.												
+CameraMode:Functions/Close	Text		Close												
+CameraMode:Functions/CloseDesc	Text		Exit camera mode												
+CameraMode:InCameraMode	Text		Camera mode												
+CameraMode:SavedCapture	Text		Saved as {0}												
+CameraMode:CaptureResolution	Text		Capture resolution												
+CameraMode:CaptureQuality	Text		Capture quality												
+CameraMode:CaptureQuality/Lossless	Text		Lossless (.png)												
+CameraMode:CaptureQuality/Compressed	Text		Compressed (.jpg)												
+CameraMode:CaptureEntities	Text		Capture entities												
+CameraMode:CaptureStopped	Text		Capture stopped												
