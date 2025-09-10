@@ -311,8 +311,8 @@ MonoBehaviour:
   background: {fileID: 695781460975371118}
   onBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
-  canBeClickedIconOpacity: 1
-  cantBeClickedIconOpacity: 0.75
+  canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
+  cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
   specialDescriptionType: 0
 --- !u!1 &1508381616402983044
 GameObject:
@@ -457,8 +457,8 @@ MonoBehaviour:
   background: {fileID: 2531054658048971152}
   onBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
-  canBeClickedIconOpacity: 1
-  cantBeClickedIconOpacity: 0.75
+  canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
+  cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
   specialDescriptionType: 0
 --- !u!1 &1605158249927127134
 GameObject:
@@ -912,8 +912,8 @@ MonoBehaviour:
   background: {fileID: 8476257205408199687}
   onBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
-  canBeClickedIconOpacity: 1
-  cantBeClickedIconOpacity: 0.75
+  canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
+  cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
   specialDescriptionType: 0
 --- !u!1 &2587788131552106154
 GameObject:
@@ -1058,8 +1058,8 @@ MonoBehaviour:
   background: {fileID: 3193376207578582802}
   onBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
-  canBeClickedIconOpacity: 1
-  cantBeClickedIconOpacity: 0.75
+  canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
+  cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
   specialDescriptionType: 1
 --- !u!1 &3943280433689019267
 GameObject:
@@ -1204,8 +1204,8 @@ MonoBehaviour:
   background: {fileID: 2663597285160982558}
   onBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
-  canBeClickedIconOpacity: 1
-  cantBeClickedIconOpacity: 0.75
+  canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
+  cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
   specialDescriptionType: 0
 --- !u!1 &4355301887998789273
 GameObject:
@@ -1854,8 +1854,8 @@ MonoBehaviour:
   background: {fileID: 5235867483233020513}
   onBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
-  canBeClickedIconOpacity: 1
-  cantBeClickedIconOpacity: 0.75
+  canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
+  cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
   specialDescriptionType: 0
 --- !u!1 &7151004699234725254
 GameObject:
@@ -2000,8 +2000,8 @@ MonoBehaviour:
   background: {fileID: 7249524432322390611}
   onBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
-  canBeClickedIconOpacity: 1
-  cantBeClickedIconOpacity: 0.75
+  canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
+  cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
   specialDescriptionType: 1
 --- !u!1 &7187760043989033214
 GameObject:
