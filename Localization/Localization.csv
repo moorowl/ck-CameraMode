@@ -1,6 +1,6 @@
 Key	Type	Desc	English	German	French (France)	Portuguese (Brazil)	Italian (Italy)	Japanese	Korean	Russian	Spanish	Ukrainian	Chinese (Simplified)	Chinese (Traditional)	Thai
 CameraMode:Functions/OpenFolder	Text		Open folder												
-CameraMode:Functions/OpenFolderDesc	Text		Open the folder that captures are saved in												
+CameraMode:Functions/OpenFolderDesc	Text		Open the folder that captures are saved in.												
 CameraMode:Functions/CaptureScreenshot	Text		Capture screenshot												
 CameraMode:Functions/CaptureScreenshotDesc	Text		Capture the area currently visible on your screen.												
 CameraMode:Functions/CaptureFrame	Text		Capture frame												
