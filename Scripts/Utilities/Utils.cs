@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using I2.Loc;
 using Pug.Platform;
 using PugMod;
 using UnityEngine;
@@ -44,6 +45,8 @@ namespace CameraMode.Utilities {
 			}
 			
 			API.ConfigFilesystem.Write(path, data);
+			
+			DisplayChatMessage(string.Format(LocalizationManager.GetTranslation("CameraMode:SavedCapture"), name));
 		}
 
 		public static void DisplayChatMessage(string text) {

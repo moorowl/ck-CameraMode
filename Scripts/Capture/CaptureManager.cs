@@ -108,7 +108,6 @@ namespace CameraMode.Capture {
 			if (isScreenshot) {
 				_captureRoutine = StartCoroutine(CaptureScreenshotRoutine(imageData => {
 					Utils.WriteCapture(captureName, _settings.Quality.GetFileExtension(), imageData);
-					Utils.DisplayChatMessage(string.Format(LocalizationManager.GetTranslation("CameraMode:SavedCapture"), captureName));
 				}));
 			} else {
 				var frameSize = settings.Frame.Size;
@@ -120,7 +119,6 @@ namespace CameraMode.Capture {
 				
 				_captureRoutine = StartCoroutine(CaptureFrameRoutine(imageData => {
 					Utils.WriteCapture(captureName, _settings.Quality.GetFileExtension(), imageData);
-					Utils.DisplayChatMessage(string.Format(LocalizationManager.GetTranslation("CameraMode:SavedCapture"), captureName));
 				}));
 			}
 		}
