@@ -41,6 +41,7 @@ namespace CameraMode.Capture {
 		public static CaptureManager Instance { get; private set; }
 
 		public CaptureUI CaptureUI { get; private set; }
+		public CaptureProgressUI CaptureProgressUI { get; private set; }
 
 		public bool IsCapturing => _settings != null;
 		public float CaptureProgress => IsCapturing ? math.clamp((float) AreasCaptured / AreasToCapture, 0f, 1f) : 0f;
@@ -58,7 +59,7 @@ namespace CameraMode.Capture {
 		private float _startTime;
 
 		private Coroutine _captureRoutine;
-		private List<Object> _temporaryObjects = new();
+		private readonly List<Object> _temporaryObjects = new();
 
 		private bool _queueCaptureStoppedMessage;
 
@@ -66,7 +67,7 @@ namespace CameraMode.Capture {
 			Instance = this;
 
 			var captureProgressPrefab = Main.AssetBundle.LoadAsset<GameObject>("Assets/CameraMode/Prefabs/CaptureProgressUI.prefab");
-			Instantiate(captureProgressPrefab, Manager.ui.UICamera.transform);
+			CaptureProgressUI = Instantiate(captureProgressPrefab, Manager.ui.UICamera.transform).GetComponent<CaptureProgressUI>();
 
 			var capturePrefab = Main.AssetBundle.LoadAsset<GameObject>("Assets/CameraMode/Prefabs/CaptureUI.prefab");
 			CaptureUI = Instantiate(capturePrefab, Manager.ui.UICamera.transform).GetComponent<CaptureUI>();

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CameraMode.Capture;
 using UnityEngine;
 
 namespace CameraMode.UserInterface {
@@ -10,13 +11,16 @@ namespace CameraMode.UserInterface {
 		public SpriteRenderer background;
 		public Color onBackgroundColor;
 		public Color offBackgroundColor;
-		public Color canBeClickedIconColor = new Color(1f, 1f, 1f, 1f);
-		public Color cantBeClickedIconColor = new Color(0.6f, 0.6f, 0.6f, 1f);
+		public Color canBeClickedIconColor;
+		public Color cantBeClickedIconColor;
 		public SpecialDescriptionType specialDescriptionType;
 
 		private bool _isSelected;
 		
 		public override void OnLeftClicked(bool mod1, bool mod2) {
+			if (CaptureManager.Instance.CaptureProgressUI.IsFadingInOrOut)
+				return;
+			
 			base.OnLeftClicked(mod1, mod2);
 
 			if (!canBeToggled && isOn)

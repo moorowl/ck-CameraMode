@@ -18,6 +18,8 @@ namespace CameraMode.UserInterface {
 		private float _opacity;
 		private bool _isFadingIn;
 		private bool _isFadingOut;
+		
+		public bool IsFadingInOrOut => _isFadingIn || _isFadingOut;
 
 		private bool _wasCapturing;
 		
