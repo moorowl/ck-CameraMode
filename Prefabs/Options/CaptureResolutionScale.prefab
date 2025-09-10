@@ -55,7 +55,7 @@ MonoBehaviour:
   checkForProfanity: 0
   isHidden: 0
   trackDynamicTextCharacterEndPositions: 0
-  localize: 1
+  localize: 0
   topAligned: 0
   languagesToForceLatinFont: 
   localizePlaceholders: 1
@@ -171,7 +171,7 @@ MonoBehaviour:
   dontResetEffectsOnRender: 0
   hideInStreamerMode: 0
   maxWidth: 0
-  textString: CameraMode:CaptureQuality
+  textString: CameraMode:CaptureResolution
   textSuffix: 
   formatFields: []
   overrideMaterial: {fileID: 0}
@@ -227,10 +227,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6083613745086019175}
-  - component: {fileID: 812192201198307478}
+  - component: {fileID: 4221197743174531375}
   - component: {fileID: 5309650089706297002}
   m_Layer: 5
-  m_Name: CaptureQuality
+  m_Name: CaptureResolutionScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +253,7 @@ Transform:
   - {fileID: 6170697754086549202}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &812192201198307478
+--- !u!114 &4221197743174531375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7336184116423810571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89cbce35593a4a12be7a3039daa5a340, type: 3}
+  m_Script: {fileID: 11500000, guid: 60549c4fc7d645f5b274dd3408ba2752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topUIElements: []

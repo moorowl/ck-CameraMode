@@ -208,7 +208,7 @@ namespace CameraMode.Capture {
 			gameCamera.targetTexture = oldTargetTexture;
 			RenderTexture.active = oldActiveRenderTexture;
 			
-			var encodedImageData = _settings.Quality.EncodeArrayToImage(outputPixels, GraphicsFormat.R8G8B8A8_SRGB, (uint) outputWidth, (uint) outputHeight);
+			var encodedImageData = _settings.Quality.EncodeArrayToImage(_settings.ResolutionScale, outputPixels, GraphicsFormat.R8G8B8A8_SRGB, (uint) outputWidth, (uint) outputHeight);
 			callback?.Invoke(encodedImageData);
 
 			yield return new WaitForSeconds(StartEndCaptureWaitTime);
@@ -289,7 +289,7 @@ namespace CameraMode.Capture {
 				}
 			}
 			
-			var encodedImageData = _settings.Quality.EncodeArrayToImage(outputPixels, GraphicsFormat.R8G8B8A8_SRGB, (uint) outputWidth, (uint) outputHeight);
+			var encodedImageData = _settings.Quality.EncodeArrayToImage(_settings.ResolutionScale, outputPixels, GraphicsFormat.R8G8B8A8_SRGB, (uint) outputWidth, (uint) outputHeight);
 			callback?.Invoke(encodedImageData);
 			
 			yield return new WaitForSeconds(StartEndCaptureWaitTime);

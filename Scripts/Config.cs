@@ -12,7 +12,7 @@ namespace CameraMode {
 		public int CaptureResolutionScale {
 			get => _captureResolutionScale;
 			set {
-				_captureResolutionScale = math.clamp(value, 1, 16);
+				_captureResolutionScale = math.clamp(value, 1, 8);
 				_captureResolutionScaleEntry.Value = _captureResolutionScale;
 			}
 		}

@@ -5,7 +5,7 @@ using Pug.UnityExtensions;
 namespace CameraMode.UserInterface.Options {
 	public class CaptureQualityMenuOption : RadicalMenuOption {
 		private static readonly List<CaptureQuality> Options = new() {
-			CaptureQuality.Lossless,
+			CaptureQuality.Uncompressed,
 			CaptureQuality.Compressed
 		};
 		

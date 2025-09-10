@@ -35,7 +35,7 @@ namespace CameraMode.UserInterface.Options {
 		}
 
 		private void SetLevel(int level) {
-			Config.Instance.CaptureResolutionScale = Options.IsValidIndex(level) ? Options[level] : Options[0];
+			Config.Instance.CaptureResolutionScale = Options.IsValidIndex(level) ? Options[level] : Options[1];
 			UpdateText(Config.Instance.CaptureResolutionScale);
 		}
 
