@@ -54,7 +54,7 @@ namespace CameraMode.UserInterface {
 				}
 				
 				background.color = background.color.ColorWithNewAlpha(_opacity);
-				inCameraModeText.color = background.color.ColorWithNewAlpha(_opacity);
+				inCameraModeText.SetTempColor(inCameraModeText.color.ColorWithNewAlpha(_opacity));
 				progressText.SetTempColor(progressText.color.ColorWithNewAlpha(_opacity));
 				areasCapturedText.SetTempColor(progressText.color.ColorWithNewAlpha(_opacity));
 			} else {
