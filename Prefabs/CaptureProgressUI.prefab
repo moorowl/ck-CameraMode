@@ -64,7 +64,8 @@ MonoBehaviour:
   progressText: {fileID: 869841909464159464}
   areasCapturedText: {fileID: 8309606688338741552}
   inCameraModeText: {fileID: 5642071654368313820}
-  opacityLerpSpeed: 5
+  fadeOutSpeed: 5
+  fadeInSpeed: 25
 --- !u!1 &1108429175803873276
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ MonoBehaviour:
     outlineColor: {r: 0, g: 0, b: 0, a: 0}
     supportColorTags: 0
     sortingLayer: -2147483648
-    orderInLayer: 9999
+    orderInLayer: -2
     maskInteraction: 0
   styleOverrides: []
   usePooledResources: 1
@@ -271,7 +272,7 @@ MonoBehaviour:
     outlineColor: {r: 0, g: 0, b: 0, a: 0}
     supportColorTags: 0
     sortingLayer: -2147483648
-    orderInLayer: 9999
+    orderInLayer: -2
     maskInteraction: 0
   styleOverrides: []
   usePooledResources: 1
@@ -382,7 +383,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1241602095
   m_SortingLayer: 5
-  m_SortingOrder: 9900
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: efd12cff43308b14dbe3dd0439da570f, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -478,7 +479,7 @@ MonoBehaviour:
     outlineColor: {r: 0, g: 0, b: 0, a: 1}
     supportColorTags: 0
     sortingLayer: -2147483648
-    orderInLayer: 9999
+    orderInLayer: -2
     maskInteraction: 0
   styleOverrides: []
   usePooledResources: 1
