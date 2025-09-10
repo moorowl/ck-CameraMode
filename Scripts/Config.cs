@@ -12,7 +12,7 @@ namespace CameraMode {
 		public int CaptureResolutionScale {
 			get => _captureResolutionScale;
 			set {
-				_captureResolutionScale = math.clamp(value, 1, 8);
+				_captureResolutionScale = math.clamp(value, 1, 16);
 				_captureResolutionScaleEntry.Value = _captureResolutionScale;
 			}
 		}
@@ -22,7 +22,7 @@ namespace CameraMode {
 		public CaptureQuality CaptureQuality {
 			get => _captureQuality;
 			set {
-				_captureQuality = Enum.IsDefined(typeof(CaptureQuality), value) ? value : CaptureQuality.Lossless;
+				_captureQuality = Enum.IsDefined(typeof(CaptureQuality), value) ? value : CaptureQuality.Uncompressed;
 				_captureQualityEntry.Value = _captureQuality;
 			}
 		}
@@ -31,7 +31,7 @@ namespace CameraMode {
 			_captureResolutionScaleEntry = API.Config.Register(Main.InternalName, "Capture", "", "ResolutionScale", 2);
 			CaptureResolutionScale = _captureResolutionScaleEntry.Value;
 			
-			_captureQualityEntry = API.Config.Register(Main.InternalName, "Capture", "", "Quality", CaptureQuality.Lossless);
+			_captureQualityEntry = API.Config.Register(Main.InternalName, "Capture", "", "Quality", CaptureQuality.Uncompressed);
 			CaptureQuality = _captureQualityEntry.Value;
 		}
 	}
