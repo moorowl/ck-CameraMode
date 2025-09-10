@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 
 namespace CameraMode {
 	public class Main : IMod {
-		public const string Version = "1.0";
+		public const string Version = "1.1";
 		public const string InternalName = "CameraMode";
 		public const string DisplayName = "Camera Mode";
 		
