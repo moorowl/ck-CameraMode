@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using I2.Loc;
-using Pug.Platform;
 using PugMod;
 using UnityEngine;
 
@@ -9,19 +8,35 @@ namespace CameraMode.Utilities {
 		private const string CaptureDirectoryName = Main.InternalName + "/Captures";
 
 		private static readonly MemberInfo MiRenderText = typeof(ChatWindow).GetMembersChecked().FirstOrDefault(x => x.GetNameChecked() == "RenderText");
+		private static readonly MemberInfo MiPlatformInterface = typeof(Manager).GetMembersChecked().FirstOrDefault(x => x.GetNameChecked() == "_platformInterface");
 		
 		public static bool IsSingleplayer => Manager.ecs.ServerConnectionQ.CalculateEntityCount() <= 1;
 		public static bool IsSimulationDisabled => API.Client.World.GetExistingSystemManaged<WorldInfoSystem>().WorldInfo.simulationDisabled;
 
 		public static void OpenCaptureDirectory() {
-			// this requires elevated access
-			if (API.ConfigFilesystem is not StandaloneFilesystem standaloneFilesystem)
+			var modConfigPath = GetModConfigDirectory();
+			if (modConfigPath == null)
 				return;
-			
+
 			TryCreateCaptureDirectory();
 			
-			var path = standaloneFilesystem.Rel2Abs(CaptureDirectoryName);
-			Application.OpenURL("file://" + path);
+			var capturesPath = modConfigPath + "/" + CaptureDirectoryName;
+			Application.OpenURL("file://" + capturesPath);
+		}
+
+		private static string GetModConfigDirectory() {
+			var platformInterface = (PlatformInterface) API.Reflection.GetValue(MiPlatformInterface, Manager.main);
+			if (platformInterface == null)
+				return null;
+			
+			var persistentPath = Application.persistentDataPath;
+			if (!string.IsNullOrEmpty(platformInterface.SavePrefix))
+				persistentPath = persistentPath + "/" + platformInterface.SavePrefix;
+
+			persistentPath = persistentPath + "/" + platformInterface.Name + "/" + platformInterface.GetAccountId();
+			persistentPath = persistentPath.Replace('\\', '/');
+			
+			return persistentPath + "/mods";
 		}
 
 		private static void TryCreateCaptureDirectory() {
