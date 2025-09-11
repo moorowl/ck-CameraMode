@@ -5,7 +5,6 @@ CameraMode:Functions/CaptureScreenshot	Text		Capture screenshot
 CameraMode:Functions/CaptureScreenshotDesc	Text		Capture the area currently visible on your screen.												
 CameraMode:Functions/CaptureFrame	Text		Capture frame												
 CameraMode:Functions/CaptureFrameDesc	Text		Capture the selected frame. Use the Pin frame option to set it.												
-CameraMode:Functions/CaptureFrameSpecialDesc	Text		A frame hasn't been set.												
 CameraMode:Functions/PinFrame	Text		Pin frame												
 CameraMode:Functions/PinFrameDesc	Text		Set the frame by clicking in the world or on the fullscreen map with the left and right mouse buttons.												
 CameraMode:Functions/ResetFrame	Text		Clear frame												
@@ -22,3 +21,4 @@ CameraMode:CaptureQuality/Uncompressed	Text		Uncompressed (.png)
 CameraMode:CaptureQuality/Compressed	Text		Compressed (.jpg)												
 CameraMode:CaptureEntities	Text		Capture entities												
 CameraMode:CaptureStopped	Text		Capture stopped												
+CameraMode:DisabledReason/NoFrameSet	Text		A frame hasn't been set.												

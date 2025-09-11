@@ -313,7 +313,6 @@ MonoBehaviour:
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
   cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
-  specialDescriptionType: 0
 --- !u!1 &1508381616402983044
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +458,6 @@ MonoBehaviour:
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
   cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
-  specialDescriptionType: 0
 --- !u!1 &1605158249927127134
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,7 +912,6 @@ MonoBehaviour:
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
   cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
-  specialDescriptionType: 0
 --- !u!1 &2587788131552106154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1057,6 @@ MonoBehaviour:
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
   cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
-  specialDescriptionType: 1
 --- !u!1 &3943280433689019267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1202,6 @@ MonoBehaviour:
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
   cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
-  specialDescriptionType: 0
 --- !u!1 &4355301887998789273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,7 +1851,6 @@ MonoBehaviour:
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
   cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
-  specialDescriptionType: 0
 --- !u!1 &7151004699234725254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,7 +1996,6 @@ MonoBehaviour:
   offBackgroundColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   canBeClickedIconColor: {r: 1, g: 1, b: 1, a: 1}
   cantBeClickedIconColor: {r: 1, g: 1, b: 1, a: 0.2509804}
-  specialDescriptionType: 1
 --- !u!1 &7187760043989033214
 GameObject:
   m_ObjectHideFlags: 0

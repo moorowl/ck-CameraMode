@@ -69,8 +69,16 @@ namespace CameraMode.UserInterface {
 					Frame.PinB = mouseTilePosition;
 			}
 			
-			captureFrameButton.canBeClicked = Frame.IsComplete;
-			clearFrameButton.canBeClicked = Frame.PinA != null || Frame.PinB != null;
+			if (Frame.PinA == null && Frame.PinB == null)
+				clearFrameButton.SetDisabled(CaptureButtonUI.DisabledReason.NoFrameSet);
+			else
+				clearFrameButton.SetEnabled();
+			
+			if (!Frame.IsComplete)
+				captureFrameButton.SetDisabled(CaptureButtonUI.DisabledReason.NoFrameSet);
+			else
+				captureFrameButton.SetEnabled();
+			
 			pinFrameButton.isOn = SelectedMode == Mode.PinFrame;
 			toggleMapButton.isOn = Manager.ui.mapUI.IsShowingBigMap;
 		}

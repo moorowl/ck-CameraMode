@@ -13,9 +13,19 @@ namespace CameraMode.UserInterface {
 		public Color offBackgroundColor;
 		public Color canBeClickedIconColor;
 		public Color cantBeClickedIconColor;
-		public SpecialDescriptionType specialDescriptionType;
 
 		private bool _isSelected;
+		private DisabledReason _disabledReason;
+
+		public void SetEnabled() {
+			canBeClicked = true;
+			_disabledReason = DisabledReason.None;
+		}
+		
+		public void SetDisabled(DisabledReason disabledReason = DisabledReason.None) {
+			canBeClicked = false;
+			_disabledReason = disabledReason;
+		}
 		
 		public override void OnLeftClicked(bool mod1, bool mod2) {
 			if (CaptureManager.Instance.CaptureProgressUI.IsFadingInOrOut)
@@ -59,9 +69,9 @@ namespace CameraMode.UserInterface {
 					}
 				};
 				
-				if (specialDescriptionType == SpecialDescriptionType.CaptureFrame && !canBeClicked) {
+				if (!canBeClicked && _disabledReason != DisabledReason.None) {
 					lines.Add(new TextAndFormatFields {
-						text = "CameraMode:Functions/CaptureFrameSpecialDesc",
+						text = "CameraMode:DisabledReason/" + _disabledReason,
 						color = Manager.ui.brokenColor
 					});
 				}
@@ -75,9 +85,9 @@ namespace CameraMode.UserInterface {
 			background.color = onBackgroundColor;
 		}
 
-		public enum SpecialDescriptionType {
+		public enum DisabledReason {
 			None,
-			CaptureFrame
+			NoFrameSet
 		}
 	}
 }
