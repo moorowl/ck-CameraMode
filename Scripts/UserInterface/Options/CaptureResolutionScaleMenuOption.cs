@@ -40,7 +40,7 @@ namespace CameraMode.UserInterface.Options {
 		}
 
 		private void UpdateText(int resolutionScale) {
-			valueText.Render($"x{resolutionScale}");
+			valueText.Render($"{resolutionScale}x");
 		}
 	}
 }
