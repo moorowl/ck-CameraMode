@@ -28,7 +28,7 @@ namespace CameraMode.UserInterface {
 		}
 		
 		public override void OnLeftClicked(bool mod1, bool mod2) {
-			if (CaptureManager.Instance.CaptureProgressUI.IsFadingInOrOut)
+			if (CaptureManager.Instance.IsCapturing)
 				return;
 			
 			base.OnLeftClicked(mod1, mod2);

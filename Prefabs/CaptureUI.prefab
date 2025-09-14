@@ -2197,7 +2197,7 @@ MonoBehaviour:
     outlineColor: {r: 0, g: 0, b: 0, a: 1}
     supportColorTags: 0
     sortingLayer: 1241602095
-    orderInLayer: -9
+    orderInLayer: -2
     maskInteraction: 0
   styleOverrides: []
   usePooledResources: 1

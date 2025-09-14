@@ -63,9 +63,6 @@ MonoBehaviour:
   background: {fileID: 5521136936397100153}
   progressText: {fileID: 869841909464159464}
   areasCapturedText: {fileID: 8309606688338741552}
-  inCameraModeText: {fileID: 5642071654368313820}
-  fadeOutSpeed: 5
-  fadeInSpeed: 25
 --- !u!1 &1108429175803873276
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +304,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4607894988189844631}
-  - {fileID: 5782777524965814119}
   - {fileID: 2784579888447946881}
   m_Father: {fileID: 6878138081195730225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -395,92 +391,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &8530061762849374028
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5782777524965814119}
-  - component: {fileID: 5642071654368313820}
-  m_Layer: 5
-  m_Name: inCameraModeText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5782777524965814119
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8530061762849374028}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.0625, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3536349236002616238}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5642071654368313820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8530061762849374028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1873953792, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centerInParent: 0
-  activeInPlatforms: -1
-  activeInStoreFronts: -1
-  renderOnStart: 1
-  keepEnabledOnStart: 1
-  alwaysUpdateDynamicTextPixelPos: 0
-  isWrittenToByUser: 0
-  checkForProfanity: 1
-  isHidden: 0
-  trackDynamicTextCharacterEndPositions: 0
-  localize: 1
-  topAligned: 0
-  languagesToForceLatinFont: 
-  localizePlaceholders: 1
-  dontResetEffectsOnRender: 0
-  hideInStreamerMode: 0
-  maxWidth: 0
-  textString: CameraMode:InCameraMode
-  textSuffix: 
-  formatFields: []
-  overrideMaterial: {fileID: 0}
-  offsetKey: 
-  style:
-    fontFace: 67108912
-    capitalization: 0
-    horizontalAlignment: 1
-    verticalAlignment: 1
-    extraCharSpacing: 0
-    extraSpaceWidth: 0
-    extraLineSpacing: 0
-    extraEmptyLineSpacing: 0
-    forceMonospace: 0
-    wrapAtComma: 0
-    rightToLeftXOffset: 0
-    invertHorizontalAlignment: 0
-    color: {r: 1, g: 1, b: 1, a: 1}
-    outline: -1
-    outlineColor: {r: 0, g: 0, b: 0, a: 1}
-    supportColorTags: 0
-    sortingLayer: -2147483648
-    orderInLayer: -2
-    maskInteraction: 0
-  styleOverrides: []
-  usePooledResources: 1
-  freeResourcesOnDisable: 0

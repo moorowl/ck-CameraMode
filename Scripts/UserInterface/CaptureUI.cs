@@ -35,8 +35,6 @@ namespace CameraMode.UserInterface {
 			Instantiate(captureFramePrefab, _renderAnchor);
 			Instantiate(captureMapFramePrefab, Manager.ui.mapUI.mapPartsContainer.transform);
 			
-			root.SetActive(IsOpen);
-
 			API.Client.OnWorldCreated += () => {
 				Frame = new CaptureFrame();
 			};
@@ -48,12 +46,17 @@ namespace CameraMode.UserInterface {
 		}
 		
 		private void Update() {
-			root.SetActive(IsOpen && !CaptureManager.Instance.IsCapturing);
-			if (!root.activeSelf)
-				return;
-
+			var isCapturing = CaptureManager.Instance.IsCapturing;
+			
 			buttonContainer.transform.localScale = Manager.ui.CalcGameplayUITargetScaleMultiplier();
-			inCameraModeText.transform.localScale = buttonContainer.transform.localScale;
+			inCameraModeText.transform.localScale = isCapturing ? Vector3.one : buttonContainer.transform.localScale;
+			
+			buttonContainer.SetActive(IsOpen);
+			inCameraModeText.gameObject.SetActive(IsOpen || isCapturing);
+			inCameraModeText.SetTempColor(inCameraModeText.color.ColorWithNewAlpha(IsOpen ? 1f : CaptureManager.Instance.CaptureProgressUI.Opacity));
+			
+			if (!buttonContainer.activeSelf)
+				return;
 			
 			var input = Manager.input.singleplayerInputModule;
 			PinPreview = null;
@@ -105,21 +108,14 @@ namespace CameraMode.UserInterface {
 		}
 
 		public void TakeScreenshotCapture() {
-			CaptureManager.Instance.Capture(new CaptureSettings {
-				ResolutionScale = Config.Instance.CaptureResolutionScale,
-				Quality = Config.Instance.CaptureQuality
-			});
+			CaptureManager.Instance.Capture(new ScreenshotCapture());
 		}
 
 		public void TakeFrameCapture() {
 			if (!Frame.IsComplete)
 				return;
 			
-			CaptureManager.Instance.Capture(new CaptureSettings {
-				Frame = Frame,
-				ResolutionScale = Config.Instance.CaptureResolutionScale,
-				Quality = Config.Instance.CaptureQuality
-			});
+			CaptureManager.Instance.Capture(new FrameCapture(Frame));
 		}
 		
 		public void OpenFolder() {
