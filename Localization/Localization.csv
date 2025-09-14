@@ -8,11 +8,11 @@ CameraMode:Functions/CaptureFrameDesc	Text		Capture the selected frame. Use the 
 CameraMode:Functions/PinFrame	Text		Pin frame												
 CameraMode:Functions/PinFrameDesc	Text		Set the frame by clicking in the world or on the fullscreen map with the left and right mouse buttons.												
 CameraMode:Functions/ResetFrame	Text		Clear frame												
-CameraMode:Functions/ResetFrameDesc	Text		Clears the selected frame.												
+CameraMode:Functions/ResetFrameDesc	Text		Clear the selected frame.												
 CameraMode:Functions/ToggleMap	Text		Toggle map												
-CameraMode:Functions/ToggleMapDesc	Text		Toggles the fullscreen map.												
+CameraMode:Functions/ToggleMapDesc	Text		Toggle the fullscreen map.												
 CameraMode:Functions/Close	Text		Close												
-CameraMode:Functions/CloseDesc	Text		Exit camera mode												
+CameraMode:Functions/CloseDesc	Text		Exit camera mode.												
 CameraMode:InCameraMode	Text		Camera mode												
 CameraMode:SavedCapture	Text		Saved as {0}												
 CameraMode:CaptureResolution	Text		Capture resolution												
