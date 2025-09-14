@@ -210,9 +210,6 @@ namespace CameraMode.Capture {
 			
 			_uiWasDisabled = Manager.prefs.hideInGameUI;
 			Manager.prefs.hideInGameUI = true;
-			
-			Manager.camera.currentCameraStyle = CameraManager.CameraControlStyle.Static;
-			Manager.camera.manualControlTargetPosition = Manager.main.player.GetEntityPosition();
 		}
 		
 		private void ApplyCaptureEffectsAfterFade() {

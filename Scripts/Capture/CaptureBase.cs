@@ -93,6 +93,9 @@ namespace CameraMode.Capture {
 		}
 
 		public override IEnumerator GetCoroutine(Action<byte[]> callback) {
+			Manager.camera.currentCameraStyle = CameraManager.CameraControlStyle.Static;
+			Manager.camera.manualControlTargetPosition = Manager.main.player.GetEntityPosition();
+			
 			var captureResScale = Config.Instance.CaptureResolutionScale;
 			var captureQuality = Config.Instance.CaptureQuality;
 			var framePosition = _frame.Position;
