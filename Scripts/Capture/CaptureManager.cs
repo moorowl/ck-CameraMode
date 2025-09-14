@@ -6,6 +6,7 @@ using CameraMode.UserInterface;
 using CameraMode.Utilities;
 using HarmonyLib;
 using I2.Loc;
+using Pug.ECS.Hybrid;
 using Pug.RP;
 using Pug.Sprite;
 using PugMod;
@@ -22,7 +23,6 @@ namespace CameraMode.Capture {
 		private struct TrackedEntityMono {
 			public EntityMonoBehaviour EntityMono;
 			public float TimeCreated;
-			public ParticleSystem[] ParticleSystems;
 			
 			public bool WasRecentlyCreated => Time.time < TimeCreated + 0.25f;
 		}
@@ -53,8 +53,9 @@ namespace CameraMode.Capture {
 		private bool _pauseVisuals;
 
 		private Entity _loadAreaEntity;
-		
-		private readonly Dictionary<int, TrackedEntityMono> _trackedEntityMonos = new();
+
+		private CreateGraphicalObjectSystem _createGraphicalObjectSystem;
+		private readonly Dictionary<Entity, TrackedEntityMono> _trackedEntityMonos = new();
 		
 		private void Awake() {
 			Instance = this;
@@ -65,23 +66,22 @@ namespace CameraMode.Capture {
 			var capturePrefab = Main.AssetBundle.LoadAsset<GameObject>("Assets/CameraMode/Prefabs/CaptureUI.prefab");
 			CaptureUI = Instantiate(capturePrefab, Manager.ui.UICamera.transform).GetComponent<CaptureUI>();
 
-			API.Client.OnObjectSpawnedOnClient += (_, _, graphicalObject) => {
-				if (!graphicalObject.TryGetComponent<EntityMonoBehaviour>(out var entityMono))
-					return;
+			API.Client.OnWorldCreated += () => {
+				_createGraphicalObjectSystem = API.Client.World.GetExistingSystemManaged<CreateGraphicalObjectSystem>();
+			};
+			API.Client.OnObjectSpawnedOnClient += (entity, _, _) => {
+				var entityMono = _createGraphicalObjectSystem.entityMonoBehaviourLookup.GetValueOrDefault(entity);
 
-				if (entityMono is not Firefly or SlimeBoss)
+				if (entityMono is not (SlimeBoss or Firefly))
 					return;
 				
-				var instanceId = graphicalObject.GetInstanceID();
-				_trackedEntityMonos.TryAdd(instanceId, new TrackedEntityMono {
+				_trackedEntityMonos.TryAdd(entity, new TrackedEntityMono {
 					EntityMono = entityMono,
-					TimeCreated = Time.time,
-					ParticleSystems = entityMono.GetComponentsInChildren<ParticleSystem>(true)
+					TimeCreated = Time.time
 				});
 			};
-			API.Client.OnObjectDespawnedOnClient += (_, _, graphicalObject) => {
-				var instanceId = graphicalObject.GetInstanceID();
-				_trackedEntityMonos.Remove(instanceId);
+			API.Client.OnObjectDespawnedOnClient += (entity, _, _) => {
+				_trackedEntityMonos.Remove(entity);
 			};
 		}
 
@@ -248,18 +248,17 @@ namespace CameraMode.Capture {
 			foreach (var tracked in _trackedEntityMonos.Values) {
 				var entityMono = tracked.EntityMono;
 
-				if (entityMono is Firefly) {
-					foreach (var particles in tracked.ParticleSystems) {
-						var main = particles.main;
-						var shouldPause = _pauseVisuals && !tracked.WasRecentlyCreated;
+				if (entityMono is Firefly firefly) {
+					var particles = firefly.particles;
+					var main = particles.main;
+					var shouldPause = _pauseVisuals && !tracked.WasRecentlyCreated;
 
-						if (main.simulationSpeed != 0f && shouldPause) {
-							particles.Simulate(5f);
-							particles.Play();
-							main.simulationSpeed = 0f;
-						} else if (main.simulationSpeed == 0f && !shouldPause) {
-							main.simulationSpeed = 1f;
-						}
+					if (main.simulationSpeed != 0f && shouldPause) {
+						particles.Simulate(5f);
+						particles.Play();
+						main.simulationSpeed = 0f;
+					} else if (main.simulationSpeed == 0f && !shouldPause) {
+						main.simulationSpeed = 1f;
 					}
 				}
 
