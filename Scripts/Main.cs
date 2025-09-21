@@ -44,8 +44,8 @@ namespace CameraMode {
 				var root = menu.transform.Find("Options");
 				var scroll = root.GetChild(0);
 				
-				InsertMenuItem(menu, scroll, "Assets/CameraMode/Prefabs/Options/CaptureQuality.prefab");
-				InsertMenuItem(menu, scroll, "Assets/CameraMode/Prefabs/Options/CaptureResolutionScale.prefab");
+				//InsertMenuItem(menu, scroll, "Assets/CameraMode/Prefabs/Options/CaptureQuality.prefab");
+				//InsertMenuItem(menu, scroll, "Assets/CameraMode/Prefabs/Options/CaptureResolutionScale.prefab");
 			}
 
 			private static void InsertMenuItem(RadicalMenu menu, Transform scroll, string prefabPath) {

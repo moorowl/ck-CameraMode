@@ -10,8 +10,8 @@ using UnityEngine;
 
 namespace CameraMode.UserInterface {
 	public class CaptureUI : MonoBehaviour {
-		public GameObject root;
 		public GameObject buttonContainer;
+		public GameObject settingsContainer;
 		public PugText inCameraModeText;
 		public GameObject captureFramePrefab;
 		public GameObject captureMapFramePrefab;
@@ -19,6 +19,7 @@ namespace CameraMode.UserInterface {
 		public CaptureButtonUI clearFrameButton;
 		public CaptureButtonUI pinFrameButton;
 		public CaptureButtonUI toggleMapButton;
+		public CaptureButtonUI settingsButton;
 
 		public bool IsOpen { get; private set; }
 		public CaptureFrame Frame { get; private set; }
@@ -58,6 +59,8 @@ namespace CameraMode.UserInterface {
 			if (!buttonContainer.activeSelf)
 				return;
 			
+			settingsContainer.SetActive(SelectedMode == Mode.Settings);
+			
 			var input = Manager.input.singleplayerInputModule;
 			PinPreview = null;
 			
@@ -83,6 +86,7 @@ namespace CameraMode.UserInterface {
 				captureFrameButton.SetEnabled();
 			
 			pinFrameButton.isOn = SelectedMode == Mode.PinFrame;
+			settingsButton.isOn = SelectedMode == Mode.Settings;
 			toggleMapButton.isOn = Manager.ui.mapUI.IsShowingBigMap;
 		}
 		
@@ -121,10 +125,15 @@ namespace CameraMode.UserInterface {
 		public void OpenFolder() {
 			Utils.OpenCaptureDirectory();
 		}
+		
+		public void ToggleSettings() {
+			SelectedMode = SelectedMode == Mode.Settings ? Mode.None : Mode.Settings;
+		}
 
 		public enum Mode {
 			None,
-			PinFrame
+			PinFrame,
+			Settings
 		}
 		
 		[HarmonyPatch]

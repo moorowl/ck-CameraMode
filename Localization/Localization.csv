@@ -11,14 +11,16 @@ CameraMode:Functions/ResetFrame	Text		Clear frame
 CameraMode:Functions/ResetFrameDesc	Text		Clear the selected frame.												
 CameraMode:Functions/ToggleMap	Text		Toggle map												
 CameraMode:Functions/ToggleMapDesc	Text		Toggle the fullscreen map.												
+CameraMode:Functions/Settings	Text		Settings												
+CameraMode:Functions/SettingsDesc	Text		Adjust capture settings.												
 CameraMode:Functions/Close	Text		Close												
 CameraMode:Functions/CloseDesc	Text		Exit camera mode.												
 CameraMode:InCameraMode	Text		Camera mode												
 CameraMode:SavedCapture	Text		Saved as {0}												
 CameraMode:CaptureResolution	Text		Capture resolution												
 CameraMode:CaptureQuality	Text		Capture quality												
-CameraMode:CaptureQuality/Uncompressed	Text		Uncompressed (.png)												
-CameraMode:CaptureQuality/Compressed	Text		Compressed (.jpg)												
+CameraMode:CaptureQuality/Uncompressed	Text		Uncompressed												
+CameraMode:CaptureQuality/Compressed	Text		Compressed												
 CameraMode:CaptureEntities	Text		Capture entities												
 CameraMode:CaptureStopped	Text		Capture stopped												
 CameraMode:DisabledReason/NoFrameSet	Text		A frame hasn't been set.												
