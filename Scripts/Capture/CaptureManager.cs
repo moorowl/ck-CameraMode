@@ -206,7 +206,8 @@ namespace CameraMode.Capture {
 		}
 		
 		private void ApplyCaptureEffectsBeforeFade() {
-			Manager.input.DisableInput();
+			if (CurrentCapture.CanPauseSimulation)
+				Manager.input.DisableInput();
 			
 			_uiWasDisabled = Manager.prefs.hideInGameUI;
 			Manager.prefs.hideInGameUI = true;
@@ -231,7 +232,8 @@ namespace CameraMode.Capture {
 			if (Utils.IsSimulationDisabled && CurrentCapture.CanPauseSimulation)
 				Manager.networking.SetDisableSimulation(_simulationWasDisabled, API.Client.World);
 			
-			Manager.input.EnableInput();
+			if (CurrentCapture.CanPauseSimulation)
+				Manager.input.EnableInput();
 		}
 		
 		private IEnumerator ResetCameraRoutine() {
