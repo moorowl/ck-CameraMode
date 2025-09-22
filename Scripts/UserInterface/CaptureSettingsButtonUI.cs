@@ -12,6 +12,8 @@ namespace CameraMode.UserInterface.Options {
 		public SettingType settingType;
 		public PugText labelText;
 		public PugText valueText;
+
+		private bool _wasActive;
 		
 		private static readonly List<CaptureQuality> CaptureQualityValues = new() {
 			CaptureQuality.Uncompressed,
@@ -40,8 +42,8 @@ namespace CameraMode.UserInterface.Options {
 			valueText.style.color = UnselectedTextColor;
 		}
 		
-		protected override void Awake() {
-			base.Awake();
+		protected override void LateUpdate() {
+			base.LateUpdate();
 			
 			SetSelectedValue(settingType switch {
 				SettingType.CaptureQuality => CaptureQualityValues.IndexOf(Config.Instance.CaptureQuality),
@@ -51,9 +53,11 @@ namespace CameraMode.UserInterface.Options {
 		}
 
 		public override void OnLeftClicked(bool mod1, bool mod2) {
+			base.OnLeftClicked(mod1, mod2);
+			
 			CycleSelectedValue(1);
 		}
-		
+
 		private void CycleSelectedValue(int offset) {
 			SetSelectedValue(settingType switch {
 				SettingType.CaptureQuality => (CaptureQualityValues.IndexOf(Config.Instance.CaptureQuality) + offset) % CaptureQualityValues.Count,

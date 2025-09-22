@@ -843,7 +843,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1820412471678460465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f5e49cbc4454561991ba3870ba81e58, type: 3}
+  m_Script: {fileID: 11500000, guid: 60b84d6d1b234dc8a1f884d65456c734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topUIElements: []
@@ -852,7 +852,7 @@ MonoBehaviour:
   rightUIElements: []
   childElements: []
   selectFirstEnabledElementInList: 0
-  invokeSelectionEvents: 1
+  invokeSelectionEvents: 0
   onElementSelectedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -899,7 +899,6 @@ MonoBehaviour:
   playClickSoundEffect: 1
   clickSoundEffect: 599781345
   clickSoundPitch: 0.6
-  settingType: 1
   labelText: {fileID: 3427191166134534473}
   valueText: {fileID: 2430161401705741797}
 --- !u!65 &3191510924954465250
@@ -921,7 +920,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10.25, y: 0.5, z: 0.5}
+  m_Size: {x: -10.25, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1826163546206829308
 GameObject:
@@ -1726,7 +1725,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4140136034696142890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f5e49cbc4454561991ba3870ba81e58, type: 3}
+  m_Script: {fileID: 11500000, guid: 60e37613e9fb40088cf6a8401aaee870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topUIElements: []
@@ -1735,7 +1734,7 @@ MonoBehaviour:
   rightUIElements: []
   childElements: []
   selectFirstEnabledElementInList: 0
-  invokeSelectionEvents: 1
+  invokeSelectionEvents: 0
   onElementSelectedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1782,7 +1781,6 @@ MonoBehaviour:
   playClickSoundEffect: 1
   clickSoundEffect: 599781345
   clickSoundPitch: 0.6
-  settingType: 0
   labelText: {fileID: 5431660454502623031}
   valueText: {fileID: 5677425919512293803}
 --- !u!65 &1453106097766403472
@@ -1800,7 +1798,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
