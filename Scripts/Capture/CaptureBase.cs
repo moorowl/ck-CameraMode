@@ -69,7 +69,6 @@ namespace CameraMode.Capture {
 	
 	public class FrameCapture : CaptureBase, IDisposable {
 		private const float AreaLoadWaitTime = 1.5f;
-		private const float CameraMoveLoadWaitTime = 0.25f;
 
 		public override float Progress => (float) _areasCaptured / _areasToCapture;
 		public override float2 DetailedProgress => new(_areasCaptured, _areasToCapture);
@@ -137,7 +136,7 @@ namespace CameraMode.Capture {
 
 				yield return new WaitForSeconds(AreaLoadWaitTime);
 				Manager.camera.cameraMovementStyle = CameraManager.CameraMovementStyle.Instant;
-				yield return new WaitForSeconds(CameraMoveLoadWaitTime);
+				yield return new WaitForSeconds(0.05f);
 				yield return new WaitForEndOfFrame();
 				Manager.camera.cameraMovementStyle = CameraManager.CameraMovementStyle.Smooth;
 
