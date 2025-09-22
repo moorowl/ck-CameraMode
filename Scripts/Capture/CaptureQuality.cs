@@ -21,7 +21,7 @@ namespace CameraMode.Capture {
 		public static byte[] EncodeArrayToImage(this CaptureQuality quality, int resolutionScale, byte[] data, GraphicsFormat format, uint width, uint height, uint rowBytes = 0u) {
 			return quality switch {
 				CaptureQuality.Uncompressed => ImageConversion.EncodeArrayToPNG(data, format, width, height, rowBytes),
-				CaptureQuality.Compressed => ImageConversion.EncodeArrayToJPG(data, format, width, height, rowBytes, (int) math.lerp(85f, 25f, resolutionScale / 8f)),
+				CaptureQuality.Compressed => ImageConversion.EncodeArrayToJPG(data, format, width, height, rowBytes, (int) math.lerp(100f, 25f, resolutionScale / 8f)),
 				_ => throw new ArgumentOutOfRangeException()
 			};
 		}
