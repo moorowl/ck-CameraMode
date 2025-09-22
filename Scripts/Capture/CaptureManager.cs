@@ -123,9 +123,9 @@ namespace CameraMode.Capture {
 		}
 
 		private IEnumerator StartCaptureRoutine() {
-			const float FadeInTime = 0.5f;
+			const float FadeInTime = 0.25f;
 
-			if (API.Server.World != null) {
+			if (API.Server.World != null && CurrentCapture.CanPauseSimulation) {
 				var entityManager = API.Server.World.EntityManager;
 
 				_loadAreaEntity = entityManager.CreateEntity();
@@ -150,14 +150,15 @@ namespace CameraMode.Capture {
 		
 		private IEnumerator EndCaptureRoutine() {
 			const float WaitForLoadAreaTime = 1f;
-			const float FadeOutTime = 0.5f;
-			
-			Manager.camera.cameraMovementStyle = CameraManager.CameraMovementStyle.Instant;
-			Manager.camera.manualControlTargetPosition = Manager.main.player.GetEntityPosition();
-			StartCoroutine(ResetCameraRoutine());
-			
-			if (CurrentCapture.CanPauseSimulation)
+			const float FadeOutTime = 0.25f;
+
+			if (CurrentCapture.CanPauseSimulation) {
+				Manager.camera.cameraMovementStyle = CameraManager.CameraMovementStyle.Instant;
+				Manager.camera.manualControlTargetPosition = Manager.main.player.GetEntityPosition();
+				StartCoroutine(ResetCameraRoutine());
+				
 				yield return new WaitForSeconds(WaitForLoadAreaTime);
+			}
 			
 			ClearCaptureEffectsBeforeFade();
 			CaptureProgressUI.Fade(0f, FadeOutTime);
