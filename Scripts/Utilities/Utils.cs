@@ -10,7 +10,7 @@ namespace CameraMode.Utilities {
 		private static readonly MemberInfo MiRenderText = typeof(ChatWindow).GetMembersChecked().FirstOrDefault(x => x.GetNameChecked() == "RenderText");
 		private static readonly MemberInfo MiPlatformInterface = typeof(Manager).GetMembersChecked().FirstOrDefault(x => x.GetNameChecked() == "_platformInterface");
 		
-		public static bool IsSingleplayer => Manager.ecs.ServerConnectionQ.CalculateEntityCount() <= 1;
+		public static bool IsSingleplayer => Manager.ecs.ServerWorld != null && Manager.ecs.ServerConnectionQ.CalculateEntityCount() <= 1;
 		public static bool IsSimulationDisabled => API.Client.World.GetExistingSystemManaged<WorldInfoSystem>().WorldInfo.simulationDisabled;
 
 		public static void OpenCaptureDirectory() {
