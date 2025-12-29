@@ -32,6 +32,8 @@ namespace CameraMode.Capture {
 		public CaptureUI CaptureUI { get; private set; }
 		public CaptureProgressUI CaptureProgressUI { get; private set; }
 		private static bool CanOpenCaptureUI => !Manager.menu.IsAnyMenuActive()
+		    && Manager.sceneHandler.isInGame
+		    && !Manager.load.IsScreenBlack()
             && Manager.main.player != null
             && !Manager.main.player.isDyingOrDead
             && Manager.main.player.adminPrivileges >= 1;
@@ -61,12 +63,8 @@ namespace CameraMode.Capture {
 		private void Awake() {
 			Instance = this;
 
-			var captureProgressPrefab = Main.AssetBundle.LoadAsset<GameObject>("Assets/CameraMode/Prefabs/CaptureProgressUI.prefab");
-			CaptureProgressUI = Instantiate(captureProgressPrefab, Manager.ui.UICamera.transform).GetComponent<CaptureProgressUI>();
-
-			var capturePrefab = Main.AssetBundle.LoadAsset<GameObject>("Assets/CameraMode/Prefabs/CaptureUI.prefab");
-			CaptureUI = Instantiate(capturePrefab, Manager.ui.UICamera.transform).GetComponent<CaptureUI>();
-
+			InstantiateInterface();
+			
 			API.Client.OnWorldCreated += () => {
 				_createGraphicalObjectSystem = API.Client.World.GetExistingSystemManaged<CreateGraphicalObjectSystem>();
 			};
@@ -86,26 +84,37 @@ namespace CameraMode.Capture {
 			};
 		}
 
+		private void InstantiateInterface() {
+			var captureProgressPrefab = Main.AssetBundle.LoadAsset<GameObject>("Assets/CameraMode/Prefabs/CaptureProgressUI.prefab");
+			CaptureProgressUI = Instantiate(captureProgressPrefab, Manager.ui.UICamera.transform).GetComponent<CaptureProgressUI>();
+
+			var capturePrefab = Main.AssetBundle.LoadAsset<GameObject>("Assets/CameraMode/Prefabs/CaptureUI.prefab");
+			CaptureUI = Instantiate(capturePrefab, Manager.ui.UICamera.transform).GetComponent<CaptureUI>();
+			CaptureUI.IsOpen = false;
+		}
+		
 		private void Update() {
+			UpdateInputs();
+			UpdateCapture();
+			UpdatePauseVisuals();
+		}
+
+		private void UpdateInputs() {
 			if (IsCapturing && (!CanOpenCaptureUI || !CaptureUI.IsOpen || !Manager.sceneHandler.isInGame))
 				StopCapture();
 			
 			if (CanOpenCaptureUI) {
 				if (Input.GetKeyDown(KeyCode.F4)) {
-					if (CaptureUI.IsOpen) {
+					if (CaptureUI.IsOpen)
 						CaptureUI.Close();
-					} else {
+					else
 						CaptureUI.Open();
-					}
 				}
 			} else if (CaptureUI.IsOpen) {
 				CaptureUI.Close();
 			}
-			
-			UpdateCapture();
-			UpdatePauseVisuals();
 		}
-
+		
 		public void Capture(CaptureBase capture, string captureName = null) {
 			if (IsCapturing)
 				return;
