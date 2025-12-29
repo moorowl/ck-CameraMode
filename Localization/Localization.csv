@@ -21,6 +21,8 @@ CameraMode:CaptureResolution	Text		Capture resolution
 CameraMode:CaptureQuality	Text		Capture quality												
 CameraMode:CaptureQuality/Uncompressed	Text		Uncompressed												
 CameraMode:CaptureQuality/Compressed	Text		Compressed												
-CameraMode:CaptureEntities	Text		Capture entities												
+CameraMode:CaptureLighting	Text		Lighting												
+CameraMode:CaptureLighting/Normal	Text		Normal												
+CameraMode:CaptureLighting/Fullbright	Text		Fullbright												
 CameraMode:CaptureStopped	Text		Capture stopped												
 CameraMode:DisabledReason/NoFrameSet	Text		A frame hasn't been set.												

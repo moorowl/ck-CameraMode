@@ -27,12 +27,25 @@ namespace CameraMode {
 			}
 		}
 		
+		private bool _captureFullbright;
+		private IConfigEntry<bool>  _captureFullbrightEntry;
+		public bool CaptureFullbright {
+			get => _captureFullbright;
+			set {
+				_captureFullbright = value;
+				_captureFullbrightEntry.Value = _captureFullbright;
+			}
+		}
+		
 		public void Init() {
 			_captureResolutionScaleEntry = API.Config.Register(Main.InternalName, "Capture", "", "ResolutionScale", 2);
 			CaptureResolutionScale = _captureResolutionScaleEntry.Value;
 			
 			_captureQualityEntry = API.Config.Register(Main.InternalName, "Capture", "", "Quality", CaptureQuality.Uncompressed);
 			CaptureQuality = _captureQualityEntry.Value;
+			
+			_captureFullbrightEntry = API.Config.Register(Main.InternalName, "Capture", "", "Fullbright", false);
+			CaptureFullbright = _captureFullbrightEntry.Value;
 		}
 	}
 }

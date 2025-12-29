@@ -48,6 +48,7 @@ namespace CameraMode.Capture {
 		
 		private bool _uiWasDisabled;
 		private bool _simulationWasDisabled;
+		private bool _unlitPassWasDisabled;
 		private int _oldDynamicWaterSetting;
 		private float _startTime;
 		private bool _pauseVisuals;
@@ -217,11 +218,13 @@ namespace CameraMode.Capture {
 		private void ApplyCaptureEffectsAfterFade() {
 			_pauseVisuals = true;
 			_startTime = Time.time;
-			
+
+			_unlitPassWasDisabled = API.Rendering.GameCamera.unlitDeferredPass;
 			_oldDynamicWaterSetting = Manager.prefs.dynamicWater;
 			_simulationWasDisabled = Utils.IsSimulationDisabled;
 			
 			Manager.prefs.dynamicWater = 0;
+			API.Rendering.GameCamera.unlitDeferredPass = Config.Instance.CaptureFullbright;
 			if (Utils.IsSingleplayer && CurrentCapture.CanPauseSimulation)
 				Manager.networking.SetDisableSimulation(true, API.Client.World);
 		}
@@ -229,6 +232,7 @@ namespace CameraMode.Capture {
 		private void ClearCaptureEffectsBeforeFade() {
 			_pauseVisuals = false;
 			Manager.prefs.hideInGameUI = _uiWasDisabled;
+			API.Rendering.GameCamera.unlitDeferredPass = _unlitPassWasDisabled;
 			Manager.prefs.dynamicWater = _oldDynamicWaterSetting;
 			if (Utils.IsSimulationDisabled && CurrentCapture.CanPauseSimulation)
 				Manager.networking.SetDisableSimulation(_simulationWasDisabled, API.Client.World);
