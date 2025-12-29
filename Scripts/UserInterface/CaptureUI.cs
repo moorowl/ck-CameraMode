@@ -10,8 +10,8 @@ using UnityEngine;
 
 namespace CameraMode.UserInterface {
 	public class CaptureUI : MonoBehaviour {
-		public GameObject buttonContainer;
-		public GameObject settingsContainer;
+		public Transform functionsContainer;
+		public Transform settingsContainer;
 		public PugText inCameraModeText;
 		public GameObject captureFramePrefab;
 		public GameObject captureMapFramePrefab;
@@ -21,13 +21,17 @@ namespace CameraMode.UserInterface {
 		public CaptureButtonUI toggleMapButton;
 		public CaptureButtonUI settingsButton;
 
-		public bool IsOpen { get; private set; }
+		public bool IsOpen {
+			get => gameObject.activeSelf;
+			set => gameObject.SetActive(value);
+		}
 		public CaptureFrame Frame { get; private set; }
 		public Mode SelectedMode { get; private set; }
 		
 		public int2? PinPreview { get; private set; }
 		
 		private Transform _renderAnchor;
+		private bool? _faceMouseDirection;
 		
 		private void Start() {
 			Frame = new CaptureFrame();
@@ -49,32 +53,37 @@ namespace CameraMode.UserInterface {
 		private void Update() {
 			var isCapturing = CaptureManager.Instance.IsCapturing;
 			
-			buttonContainer.transform.localScale = Manager.ui.CalcGameplayUITargetScaleMultiplier();
-			inCameraModeText.transform.localScale = isCapturing ? Vector3.one : buttonContainer.transform.localScale;
-			
-			buttonContainer.SetActive(IsOpen);
-			inCameraModeText.gameObject.SetActive(IsOpen || isCapturing);
-			inCameraModeText.SetTempColor(inCameraModeText.color.ColorWithNewAlpha(IsOpen ? 1f : CaptureManager.Instance.CaptureProgressUI.Opacity));
-			
-			if (!buttonContainer.activeSelf)
-				return;
-			
-			settingsContainer.SetActive(SelectedMode == Mode.Settings);
-			
-			var input = Manager.input.singleplayerInputModule;
-			PinPreview = null;
-			
-			if (SelectedMode == Mode.PinFrame && input.PrefersKeyboardAndMouse() && !Manager.ui.mapUI.IsShowingBigMap && Manager.ui.currentSelectedUIElement == null) {
-				var mouseTilePosition = EntityMonoBehaviour.ToWorldFromRender(Manager.ui.mouse.GetMouseGameViewPosition()).RoundToInt2();
-				PinPreview = mouseTilePosition;
-				
-				if (input.IsButtonCurrentlyDown(PlayerInput.InputType.UI_INTERACT))
-					Frame.PinA = mouseTilePosition;
+			functionsContainer.localScale = Manager.ui.CalcGameplayUITargetScaleMultiplier();
+			inCameraModeText.transform.localScale = isCapturing ? Vector3.one : functionsContainer.localScale;
+			settingsContainer.gameObject.SetActive(SelectedMode == Mode.Settings);
 
-				if (input.IsButtonCurrentlyDown(PlayerInput.InputType.UI_SECOND_INTERACT))
-					Frame.PinB = mouseTilePosition;
+			UpdateInputs();
+			UpdateButtonStates();
+		}
+
+		private void UpdateInputs() {
+			var inputModule = Manager.input.singleplayerInputModule;
+			var canPinFrame = SelectedMode == Mode.PinFrame
+			                  && inputModule.PrefersKeyboardAndMouse()
+			                  && !Manager.ui.mapUI.IsShowingBigMap
+			                  && Manager.ui.currentSelectedUIElement == null;
+			
+			if (!canPinFrame) {
+				PinPreview = null;
+				return;
 			}
 			
+			var mouseTilePosition = EntityMonoBehaviour.ToWorldFromRender(Manager.ui.mouse.GetMouseGameViewPosition()).RoundToInt2();
+			PinPreview = mouseTilePosition;
+				
+			if (inputModule.IsButtonCurrentlyDown(PlayerInput.InputType.UI_INTERACT))
+				Frame.PinA = mouseTilePosition;
+
+			if (inputModule.IsButtonCurrentlyDown(PlayerInput.InputType.UI_SECOND_INTERACT))
+				Frame.PinB = mouseTilePosition;
+		}
+
+		private void UpdateButtonStates() {
 			if (Frame.PinA == null && Frame.PinB == null)
 				clearFrameButton.SetDisabled(CaptureButtonUI.DisabledReason.NoFrameSet);
 			else
@@ -92,11 +101,26 @@ namespace CameraMode.UserInterface {
 		
 		public void Open() {
 			IsOpen = true;
+			_faceMouseDirection = Manager.prefs.faceMouseDirection;
+			Manager.prefs.faceMouseDirection = false;
+			PlayToggleSound();
+			Update();
 		}
 
 		public void Close() {
 			IsOpen = false;
 			SelectedMode = Mode.None;
+
+			if (_faceMouseDirection != null) {
+				Manager.prefs.faceMouseDirection = _faceMouseDirection.Value;
+				_faceMouseDirection = null;
+			}
+
+			PlayToggleSound();
+		}
+
+		private void PlayToggleSound() {
+			AudioManager.Sfx(SfxTableID.inventorySFXInfoTab, Manager.main.player.transform.position);
 		}
 
 		public void PinFrame() {
@@ -163,7 +187,7 @@ namespace CameraMode.UserInterface {
 			[HarmonyPrefix]
 			private static bool MapUI_UpdateMapFromUserInput(MapUI __instance) {
 				var captureUI = CaptureManager.Instance.CaptureUI;
-				if (!captureUI.IsOpen || captureUI.SelectedMode != Mode.PinFrame || !__instance.IsShowingBigMap || __instance.OpenedMapThisFrame || Time.time <= CaptureButtonUI.LastPressedTime + 0.1f)
+				if (!captureUI.IsOpen || captureUI.SelectedMode != Mode.PinFrame || !__instance.IsShowingBigMap || __instance.OpenedMapThisFrame || Time.time <= CaptureButtonUI.LastPressedTime + 0.25f)
 					return true;
 				
 				var input = Manager.input.singleplayerInputModule;

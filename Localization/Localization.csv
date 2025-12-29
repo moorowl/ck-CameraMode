@@ -17,8 +17,8 @@ CameraMode:Functions/Close	Text		Close
 CameraMode:Functions/CloseDesc	Text		Exit camera mode.												
 CameraMode:InCameraMode	Text		Camera mode												
 CameraMode:SavedCapture	Text		Saved as {0}												
-CameraMode:CaptureResolution	Text		Capture resolution												
-CameraMode:CaptureQuality	Text		Capture quality												
+CameraMode:CaptureResolution	Text		Resolution scale												
+CameraMode:CaptureQuality	Text		Quality												
 CameraMode:CaptureQuality/Uncompressed	Text		Uncompressed												
 CameraMode:CaptureQuality/Compressed	Text		Compressed												
 CameraMode:CaptureLighting	Text		Lighting												
