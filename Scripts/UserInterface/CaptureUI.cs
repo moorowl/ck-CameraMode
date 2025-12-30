@@ -33,7 +33,7 @@ namespace CameraMode.UserInterface {
 		private Transform _renderAnchor;
 		private bool? _faceMouseDirection;
 		
-		private void Start() {
+		private void Awake() {
 			Frame = new CaptureFrame();
 			_renderAnchor = Manager.camera.GetRenderAnchor();
 			
