@@ -22,8 +22,10 @@ namespace CameraMode.UserInterface {
 		}
 		
 		public override void OnLeftClicked(bool mod1, bool mod2) {
-			if (CaptureManager.Instance.IsCapturing || !canBeClicked)
+			if (CaptureManager.Instance.IsCapturing || !canBeClicked) {
+				AudioManager.SfxUI(SfxID.menu_denied, 1.15f, false, 0.5f, 0.05f);
 				return;
+			}
 			
 			base.OnLeftClicked(mod1, mod2);
 			
