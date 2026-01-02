@@ -135,7 +135,8 @@
         "XblPCSandbox.dll",
         "ZipSaveFolder.dll",
         "SpriteInstancing.dll",
-        "0Harmony.dll"
+        "0Harmony.dll",
+        "Pug.ControlMapping.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [],
