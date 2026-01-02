@@ -104,7 +104,7 @@ namespace CameraMode.Capture {
 				StopCapture();
 			
 			if (CanOpenCaptureUI) {
-				if (Input.GetKeyDown(KeyCode.F4)) {
+				if (Manager.main.player.inputModule.WasButtonPressedDownThisFrame(Main.ToggleCameraMode)) {
 					if (CaptureUI.IsOpen)
 						CaptureUI.Close();
 					else
