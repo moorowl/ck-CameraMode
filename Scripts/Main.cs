@@ -49,25 +49,32 @@ namespace CameraMode {
 			public static void InputManager_Init(InputManager __instance) {
 				var inputManagerBase = Resources.Load<InputManager_Base>("Rewired Input Manager");
 				var userData = inputManagerBase.userData;
+
+				AddKeybind(userData, (int) ToggleCameraMode, $"{InternalName}:ToggleCameraMode", KeyboardKeyCode.F4);
+			}
+
+			private static void AddKeybind(UserData userData, int id, string name, KeyboardKeyCode defaultKeyCode) {
+				const int gameplayCategoryId = 17;
+				const int gameplayKeyboardMapIndex = 5;
 				
 				var newAction = new InputAction();
-				newAction.SetValue("_id", (int) ToggleCameraMode);
-				newAction.SetValue("_categoryId", 17);
-				newAction.SetValue("_name", "ControlMapper/CameraMode:ToggleCameraMode");
+				newAction.SetValue("_id", id);
+				newAction.SetValue("_categoryId", gameplayCategoryId);
+				newAction.SetValue("_name", $"ControlMapper/{name}");
 				newAction.SetValue("_type", InputActionType.Button);
-				newAction.SetValue("_descriptiveName", "ControlMapper/CameraMode:ToggleCameraMode");
+				newAction.SetValue("_descriptiveName", $"ControlMapper/{name}");
 				newAction.SetValue("_userAssignable", true);
 
 				userData.GetValue<List<InputAction>>("actions").Add(newAction);
-				userData.GetValue<ActionCategoryMap>("actionCategoryMap").AddAction(17, (int) ToggleCameraMode);
+				userData.GetValue<ActionCategoryMap>("actionCategoryMap").AddAction(gameplayCategoryId, id);
 
-				var keyboardMap = userData.GetValue<List<ControllerMap_Editor>>("keyboardMaps")[5];
+				var keyboardMap = userData.GetValue<List<ControllerMap_Editor>>("keyboardMaps")[gameplayKeyboardMapIndex];
 				
 				var keyboardActionElementMap = new ActionElementMap();
-				keyboardActionElementMap.SetValue("_actionId", (int) ToggleCameraMode);
+				keyboardActionElementMap.SetValue("_actionId", id);
 				keyboardActionElementMap.SetValue("_elementType", ControllerElementType.Button);
-				keyboardActionElementMap.SetValue("_actionCategoryId", 17);
-				keyboardActionElementMap.SetValue("_keyboardKeyCode", KeyboardKeyCode.F4);
+				keyboardActionElementMap.SetValue("_actionCategoryId", gameplayCategoryId);
+				keyboardActionElementMap.SetValue("_keyboardKeyCode", defaultKeyCode);
 				
 				keyboardMap.actionElementMaps.Add(keyboardActionElementMap);	
 			}
