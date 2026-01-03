@@ -10,7 +10,11 @@ namespace CameraMode.UserInterface {
 		 public SpriteRenderer pinA;
 		 public SpriteRenderer pinB;
 		 public SpriteRenderer pinPreview;
-		
+
+		 private void Awake() {
+			 root.SetActive(false);
+		 }
+		 
 		private void Update() {
 			var captureUI = CaptureManager.Instance.CaptureUI;
 			

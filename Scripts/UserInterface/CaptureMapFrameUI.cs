@@ -13,6 +13,8 @@ namespace CameraMode.UserInterface {
 		public SpriteRenderer pinB;
 
 		private void Awake() {
+			root.SetActive(false);
+
 			var mapContentMaterial = (Material) API.Reflection.GetValue(MiMapContentMaterial, Manager.ui.mapUI);
 			frame.material = mapContentMaterial;
 			pinA.material = mapContentMaterial;
