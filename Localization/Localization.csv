@@ -26,3 +26,4 @@ CameraMode:CaptureLighting/Normal	Text		Normal
 CameraMode:CaptureLighting/Fullbright	Text		Fullbright												
 CameraMode:CaptureStopped	Text		Capture stopped												
 CameraMode:DisabledReason/NoFrameSet	Text		A frame hasn't been set.												
+ControlMapper/CameraMode:ToggleCameraModePC	Text		Camera Mode: Toggle camera mode												

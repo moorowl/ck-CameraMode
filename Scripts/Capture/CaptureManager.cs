@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CameraMode.UserInterface;
 using CameraMode.Utilities;
+using CameraMode.Utilities.Extensions;
 using HarmonyLib;
 using I2.Loc;
 using Pug.ECS.Hybrid;
@@ -104,7 +105,7 @@ namespace CameraMode.Capture {
 				StopCapture();
 			
 			if (CanOpenCaptureUI) {
-				if (Input.GetKeyDown(KeyCode.F4)) {
+				if (Manager.input.singleplayerInputModule.WasButtonPressedDownThisFrame(Main.ToggleCameraMode)) {
 					if (CaptureUI.IsOpen)
 						CaptureUI.Close();
 					else
@@ -245,6 +246,8 @@ namespace CameraMode.Capture {
 			Manager.prefs.dynamicWater = _oldDynamicWaterSetting;
 			if (Utils.IsSimulationDisabled && CurrentCapture.CanPauseSimulation)
 				Manager.networking.SetDisableSimulation(_simulationWasDisabled, API.Client.World);
+			
+			Manager.ui.mouse.SetValue("prevPointerPosition", Vector3.positiveInfinity);
 			
 			if (CurrentCapture.CanPauseSimulation)
 				Manager.input.EnableInput();
