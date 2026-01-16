@@ -17,7 +17,7 @@ namespace CameraMode.UserInterface.Settings {
 		}
 
 		protected override void UpdateText() {
-			valueText.Render(GetConfigValue() ? "CameraMode:CaptureLighting/Fullbright" : "CameraMode:CaptureLighting/Normal");
+			valueText.Render(GetConfigValue() ? "CameraMode-Settings/CaptureLighting_Fullbright" : "CameraMode-Settings/CaptureLighting_Normal");
 		}
 	}
 }

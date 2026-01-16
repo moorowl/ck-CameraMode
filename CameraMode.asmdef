@@ -136,7 +136,8 @@
         "ZipSaveFolder.dll",
         "SpriteInstancing.dll",
         "0Harmony.dll",
-        "Pug.ControlMapping.dll"
+        "Pug.ControlMapping.dll",
+        "PugSprite.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [],

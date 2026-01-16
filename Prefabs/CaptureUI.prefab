@@ -441,14 +441,14 @@ MonoBehaviour:
   skipUpdatingSpritesColor: 0
   showHoverTitle: 1
   optionalTitle:
-    mTerm: CameraMode:Functions/PinFrame
+    mTerm: CameraMode-Functions/PinFrame
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
   showHoverDesc: 1
   optionalHoverDesc:
-    mTerm: CameraMode:Functions/PinFrameDesc
+    mTerm: CameraMode-Functions/PinFrameDesc
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1098363178752558273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1873953792, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
+  m_Script: {fileID: 1873953792, guid: 548e3dd2d27c1e2d0bdf82f0889cb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   centerInParent: 0
@@ -528,7 +528,7 @@ MonoBehaviour:
   dontResetEffectsOnRender: 0
   hideInStreamerMode: 0
   maxWidth: 0
-  textString: CameraMode:CaptureResolution
+  textString: CameraMode-Settings/CaptureResolution
   textSuffix: 
   formatFields: []
   overrideMaterial: {fileID: 0}
@@ -791,14 +791,14 @@ MonoBehaviour:
   skipUpdatingSpritesColor: 0
   showHoverTitle: 1
   optionalTitle:
-    mTerm: CameraMode:Functions/OpenFolder
+    mTerm: CameraMode-Functions/OpenFolder
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
   showHoverDesc: 1
   optionalHoverDesc:
-    mTerm: CameraMode:Functions/OpenFolderDesc
+    mTerm: CameraMode-Functions/OpenFolderDesc
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1826163546206829308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 927504439, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
+  m_Script: {fileID: 927504439, guid: 548e3dd2d27c1e2d0bdf82f0889cb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   toggleUIElements:
@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2075323588076737822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1873953792, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
+  m_Script: {fileID: 1873953792, guid: 548e3dd2d27c1e2d0bdf82f0889cb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   centerInParent: 0
@@ -1375,7 +1375,7 @@ MonoBehaviour:
   dontResetEffectsOnRender: 0
   hideInStreamerMode: 0
   maxWidth: 0
-  textString: CameraMode:CaptureQuality
+  textString: CameraMode-Settings/CaptureQuality
   textSuffix: 
   formatFields: []
   overrideMaterial: {fileID: 0}
@@ -1519,14 +1519,14 @@ MonoBehaviour:
   skipUpdatingSpritesColor: 0
   showHoverTitle: 1
   optionalTitle:
-    mTerm: CameraMode:Functions/ToggleMap
+    mTerm: CameraMode-Functions/ToggleMap
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
   showHoverDesc: 1
   optionalHoverDesc:
-    mTerm: CameraMode:Functions/ToggleMapDesc
+    mTerm: CameraMode-Functions/ToggleMapDesc
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
@@ -1922,14 +1922,14 @@ MonoBehaviour:
   skipUpdatingSpritesColor: 0
   showHoverTitle: 1
   optionalTitle:
-    mTerm: CameraMode:Functions/CaptureFrame
+    mTerm: CameraMode-Functions/CaptureFrame
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
   showHoverDesc: 1
   optionalHoverDesc:
-    mTerm: CameraMode:Functions/CaptureFrameDesc
+    mTerm: CameraMode-Functions/CaptureFrameDesc
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3678143867613389422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1873953792, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
+  m_Script: {fileID: 1873953792, guid: 548e3dd2d27c1e2d0bdf82f0889cb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   centerInParent: 0
@@ -2222,7 +2222,7 @@ MonoBehaviour:
   dontResetEffectsOnRender: 0
   hideInStreamerMode: 0
   maxWidth: 0
-  textString: CameraMode:CaptureLighting
+  textString: CameraMode-Settings/CaptureLighting
   textSuffix: 
   formatFields: []
   overrideMaterial: {fileID: 0}
@@ -2291,7 +2291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3791622972311731154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1873953792, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
+  m_Script: {fileID: 1873953792, guid: 548e3dd2d27c1e2d0bdf82f0889cb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   centerInParent: 0
@@ -2311,7 +2311,7 @@ MonoBehaviour:
   dontResetEffectsOnRender: 0
   hideInStreamerMode: 0
   maxWidth: 0
-  textString: CameraMode:CaptureQuality/Uncompressed
+  textString: CameraMode-Settings/CaptureQuality_Uncompressed
   textSuffix: 
   formatFields: []
   overrideMaterial: {fileID: 0}
@@ -2866,7 +2866,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5317147299882317292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1873953792, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
+  m_Script: {fileID: 1873953792, guid: 548e3dd2d27c1e2d0bdf82f0889cb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   centerInParent: 0
@@ -3152,7 +3152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5658087811198502440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -685432232, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
+  m_Script: {fileID: -685432232, guid: 548e3dd2d27c1e2d0bdf82f0889cb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topUIElements: []
@@ -3490,14 +3490,14 @@ MonoBehaviour:
   skipUpdatingSpritesColor: 0
   showHoverTitle: 1
   optionalTitle:
-    mTerm: CameraMode:Functions/Settings
+    mTerm: CameraMode-Functions/Settings
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
   showHoverDesc: 1
   optionalHoverDesc:
-    mTerm: CameraMode:Functions/SettingsDesc
+    mTerm: CameraMode-Functions/SettingsDesc
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
@@ -3915,7 +3915,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6663673163176759725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1873953792, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
+  m_Script: {fileID: 1873953792, guid: 548e3dd2d27c1e2d0bdf82f0889cb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   centerInParent: 0
@@ -4079,14 +4079,14 @@ MonoBehaviour:
   skipUpdatingSpritesColor: 0
   showHoverTitle: 1
   optionalTitle:
-    mTerm: CameraMode:Functions/CaptureScreenshot
+    mTerm: CameraMode-Functions/CaptureScreenshot
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
   showHoverDesc: 1
   optionalHoverDesc:
-    mTerm: CameraMode:Functions/CaptureScreenshotDesc
+    mTerm: CameraMode-Functions/CaptureScreenshotDesc
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
@@ -4311,7 +4311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7094756700993909054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -685432232, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
+  m_Script: {fileID: -685432232, guid: 548e3dd2d27c1e2d0bdf82f0889cb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topUIElements: []
@@ -4443,14 +4443,14 @@ MonoBehaviour:
   skipUpdatingSpritesColor: 0
   showHoverTitle: 1
   optionalTitle:
-    mTerm: CameraMode:Functions/ResetFrame
+    mTerm: CameraMode-Functions/ResetFrame
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
     m_DontLocalizeParameters: 0
   showHoverDesc: 1
   optionalHoverDesc:
-    mTerm: CameraMode:Functions/ResetFrameDesc
+    mTerm: CameraMode-Functions/ResetFrameDesc
     mRTL_IgnoreArabicFix: 0
     mRTL_MaxLineLength: 0
     mRTL_ConvertNumbers: 0
@@ -4890,7 +4890,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7888754844931455317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1873953792, guid: 3519ac58e5ff54941a4a69512016923c, type: 3}
+  m_Script: {fileID: 1873953792, guid: 548e3dd2d27c1e2d0bdf82f0889cb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   centerInParent: 0
@@ -4910,7 +4910,7 @@ MonoBehaviour:
   dontResetEffectsOnRender: 0
   hideInStreamerMode: 0
   maxWidth: 0
-  textString: CameraMode:InCameraMode
+  textString: CameraMode-General/InCameraMode
   textSuffix: 
   formatFields: []
   overrideMaterial: {fileID: 0}

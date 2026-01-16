@@ -57,7 +57,7 @@ namespace CameraMode.UserInterface {
 				
 				if (!canBeClicked && _disabledReason != DisabledReason.None) {
 					lines.Add(new TextAndFormatFields {
-						text = "CameraMode:DisabledReason/" + _disabledReason,
+						text = "CameraMode-DisabledReasons/" + _disabledReason,
 						color = Manager.ui.brokenColor
 					});
 				}

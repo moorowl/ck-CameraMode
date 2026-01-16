@@ -19,7 +19,7 @@ namespace CameraMode.UserInterface.Settings {
 		}
 
 		protected override void UpdateText() {
-			valueText.Render($"CameraMode:CaptureQuality/{GetConfigValue()}");
+			valueText.Render($"CameraMode-Settings/CaptureQuality_{GetConfigValue()}");
 		}
 	}
 }

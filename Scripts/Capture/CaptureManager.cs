@@ -202,7 +202,7 @@ namespace CameraMode.Capture {
 			}
 
 			if (!Manager.menu.IsAnyMenuActive() && _queueCaptureStoppedMessage) {
-				Utils.DisplayChatMessage(LocalizationManager.GetTranslation("CameraMode:CaptureStopped"));
+				Utils.DisplayChatMessage(LocalizationManager.GetTranslation("CameraMode-General/CaptureStopped"));
 				_queueCaptureStoppedMessage = false;
 			}
 

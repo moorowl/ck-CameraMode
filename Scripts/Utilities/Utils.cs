@@ -61,7 +61,7 @@ namespace CameraMode.Utilities {
 			
 			API.ConfigFilesystem.Write(path, data);
 			
-			DisplayChatMessage(string.Format(LocalizationManager.GetTranslation("CameraMode:SavedCapture"), name));
+			DisplayChatMessage(string.Format(LocalizationManager.GetTranslation("CameraMode-General/SavedCapture"), name));
 		}
 
 		public static void DisplayChatMessage(string text) {
