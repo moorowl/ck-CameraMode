@@ -35,6 +35,7 @@ namespace CameraMode.Capture {
 		private static bool CanOpenCaptureUI => !Manager.menu.IsAnyMenuActive()
 		    && Manager.sceneHandler.isInGame
 		    && !Manager.load.IsScreenBlack()
+		    && !Manager.load.IsApplicationQuitting()
             && Manager.main.player != null
             && !Manager.main.player.isDyingOrDead
             && Manager.main.player.adminPrivileges >= 1;
@@ -251,6 +252,8 @@ namespace CameraMode.Capture {
 			
 			if (CurrentCapture.CanPauseSimulation)
 				Manager.input.EnableInput();
+
+			Manager.prefs.Write();
 		}
 		
 		private IEnumerator ResetCameraRoutine() {
