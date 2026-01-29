@@ -50,7 +50,7 @@ namespace CameraMode {
 				var inputManagerBase = Resources.Load<InputManager_Base>("Rewired Input Manager");
 				var userData = inputManagerBase.userData;
 
-				AddKeybind(userData, (int) ToggleCameraMode, $"{InternalName}:ToggleCameraMode", KeyboardKeyCode.F4);
+				AddKeybind(userData, (int) ToggleCameraMode, $"{InternalName}-ToggleCameraMode", KeyboardKeyCode.F4);
 			}
 
 			private static void AddKeybind(UserData userData, int id, string name, KeyboardKeyCode defaultKeyCode) {
