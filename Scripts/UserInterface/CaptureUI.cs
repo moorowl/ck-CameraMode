@@ -201,6 +201,17 @@ namespace CameraMode.UserInterface {
 
 				return false;
 			}
+			
+			[HarmonyPatch(typeof(PrefsManager), "Write")]
+			[HarmonyPrefix]
+			private static bool PrefsManager_Write(PrefsManager __instance, bool force) {
+				// Disable writing while CaptureUI is open
+				var captureUI = CaptureManager.Instance?.CaptureUI;
+				if (captureUI != null && captureUI.IsOpen)
+					return false;
+
+				return true;
+			}
 		}
 	}
 }
