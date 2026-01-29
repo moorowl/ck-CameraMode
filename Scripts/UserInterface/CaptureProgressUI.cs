@@ -12,6 +12,7 @@ namespace CameraMode.UserInterface {
 		public PugText areasCapturedText;
 		
 		public float Opacity { get; private set; }
+		public bool IsVisible => root.activeSelf;
 
 		private float _fadeTarget;
 		private TimerSimple _fadeTimer;

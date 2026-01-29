@@ -102,18 +102,21 @@ namespace CameraMode.Capture {
 		}
 
 		private void UpdateInputs() {
-			if (IsCapturing && (!CanOpenCaptureUI || !CaptureUI.IsOpen || !Manager.sceneHandler.isInGame))
-				StopCapture();
-			
-			if (CanOpenCaptureUI) {
-				if (Manager.input.singleplayerInputModule.WasButtonPressedDownThisFrame(Main.ToggleCameraMode)) {
-					if (CaptureUI.IsOpen)
-						CaptureUI.Close();
-					else
-						CaptureUI.Open();
-				}
-			} else if (CaptureUI.IsOpen) {
+			var isOpenPressed = Manager.input.singleplayerInputModule.WasButtonPressedDownThisFrame(Main.ToggleCameraMode);
+			var isClosePressed = Manager.input.IsMenuStartButtonDown()
+			                     || Manager.input.singleplayerInputModule.WasButtonPressedDownThisFrame(PlayerInput.InputType.CANCEL)
+			                     || Manager.input.singleplayerInputModule.WasButtonPressedDownThisFrame(Main.ToggleCameraMode);
+
+			if (CaptureUI.IsOpen && !CanOpenCaptureUI)
 				CaptureUI.Close();
+			
+			if (IsCapturing && (!CaptureUI.IsOpen || isClosePressed)) {
+				StopCapture();
+			} else {
+				if (CaptureUI.IsOpen && isClosePressed)
+					CaptureUI.Close();
+				else if (!CaptureUI.IsOpen && !IsCapturing && isOpenPressed)
+					CaptureUI.Open();	
 			}
 		}
 		
@@ -288,6 +291,13 @@ namespace CameraMode.Capture {
 		
 		[HarmonyPatch]
 		public static class Patches {
+			[HarmonyPatch(typeof(MenuManager), "IsPauseDisabled")]
+			[HarmonyPostfix]
+			private static void MenuManager_IsPauseDisabled(MenuManager __instance, ref bool __result) {
+				if (Instance != null && Instance.CaptureUI.IsOpen)
+					__result = true;
+			}
+			
 			[HarmonyPatch(typeof(CameraManager), "UpdateGameAndUICameras")]
 			[HarmonyPostfix]
 			public static void CameraManager_UpdateGameAndUICameras(CameraManager __instance, float deltaTime) {

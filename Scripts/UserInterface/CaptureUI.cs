@@ -51,10 +51,10 @@ namespace CameraMode.UserInterface {
 		}
 		
 		private void Update() {
-			var isCapturing = CaptureManager.Instance.IsCapturing;
+			var forceShowInCameraModeText = CaptureManager.Instance.IsCapturing || CaptureManager.Instance.CaptureProgressUI.IsVisible;
 			
 			functionsContainer.localScale = Manager.ui.CalcGameplayUITargetScaleMultiplier();
-			inCameraModeText.transform.localScale = isCapturing ? Vector3.one : functionsContainer.localScale;
+			inCameraModeText.transform.localScale = forceShowInCameraModeText ? Vector3.one : functionsContainer.localScale;
 			settingsContainer.gameObject.SetActive(SelectedMode == Mode.Settings);
 
 			UpdateInputs();
