@@ -102,10 +102,10 @@ namespace CameraMode.Capture {
 		}
 
 		private void UpdateInputs() {
+			var isMenuStartPressed = Manager.input.singleplayerInputModule.WasButtonPressedDownThisFrame(PlayerInput.InputType.CANCEL) || Manager.input.IsMenuStartButtonDown();
+
 			var isOpenPressed = Manager.input.singleplayerInputModule.WasButtonPressedDownThisFrame(Main.ToggleCameraMode);
-			var isClosePressed = Manager.input.IsMenuStartButtonDown()
-			                     || Manager.input.singleplayerInputModule.WasButtonPressedDownThisFrame(PlayerInput.InputType.CANCEL)
-			                     || Manager.input.singleplayerInputModule.WasButtonPressedDownThisFrame(Main.ToggleCameraMode);
+			var isClosePressed = Manager.input.singleplayerInputModule.WasButtonPressedDownThisFrame(Main.ToggleCameraMode) || (isMenuStartPressed && (!Manager.ui.mapUI.IsShowingBigMap || IsCapturing));
 
 			if (CaptureUI.IsOpen && !CanOpenCaptureUI)
 				CaptureUI.Close();

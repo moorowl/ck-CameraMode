@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using I2.Loc;
 using PugMod;
 using UnityEngine;
@@ -89,6 +90,29 @@ namespace CameraMode.Utilities {
 					}
 				}
 			}
+		}
+		
+		public static void AppendButtonHint(List<TextAndFormatFields> lines, string term, string binding) {
+			var glyph = GetInputGlyph(binding);
+			if (glyph == null)
+				return;
+			
+			if (lines.Count > 0)
+				lines[^1].paddingBeneath = 0.125f;
+			
+			lines.Add(new TextAndFormatFields {
+				text = term,
+				formatFields = new[] {
+					glyph
+				},
+				dontLocalizeFormatFields = true,
+				color = Color.white * 0.95f
+			});
+		}
+		
+		private static string GetInputGlyph(string binding) {
+			var prefersJoystick = Manager.input.IsAnyGamepadConnected() && !Manager.input.SystemPrefersKeyboardAndMouse();
+			return prefersJoystick ? Manager.ui.GetShortCutString(binding, true, true) : Manager.ui.GetShortCutString(binding, false);
 		}
 	}
 }

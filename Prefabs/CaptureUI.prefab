@@ -335,7 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5446811684518281473}
   - component: {fileID: 506351707228665127}
-  - component: {fileID: 1449818673994146092}
+  - component: {fileID: 7640704320122000722}
   m_Layer: 5
   m_Name: pinFrame
   m_TagString: Untagged
@@ -383,7 +383,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.25, y: 1.25, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1449818673994146092
+--- !u!114 &7640704320122000722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 791069634393093824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf7a5cb877634b0a863d0155c8c78318, type: 3}
+  m_Script: {fileID: 11500000, guid: c4247d7ecb99406b815273c9dba4a182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topUIElements: []
@@ -401,7 +401,7 @@ MonoBehaviour:
   rightUIElements: []
   childElements: []
   selectFirstEnabledElementInList: 0
-  invokeSelectionEvents: 1
+  invokeSelectionEvents: 0
   onElementSelectedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggleUIElements:
-  - {fileID: 1449818673994146092}
+  - {fileID: 7640704320122000722}
   - {fileID: 7912578354039088383}
 --- !u!1 &1977852476354814839
 GameObject:
@@ -5758,6 +5758,6 @@ MonoBehaviour:
     type: 3}
   captureFrameButton: {fileID: 6565283098228131900}
   clearFrameButton: {fileID: 5374530012242184345}
-  pinFrameButton: {fileID: 1449818673994146092}
+  pinFrameButton: {fileID: 7640704320122000722}
   toggleMapButton: {fileID: 9076550563277930400}
   settingsButton: {fileID: 7912578354039088383}
